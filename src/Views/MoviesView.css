@@ -1,0 +1,13 @@
+.genre-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.genre-list {
+width: auto;
+}
+
+.genre-view {
+width: auto;
+margin: auto;
+}
