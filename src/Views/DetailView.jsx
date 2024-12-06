@@ -47,7 +47,7 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                         <p id="textInDetail" >Description:<br />{movie.overview}</p>
                         <h3 id="textInDetail" >Released Date: {movie.release_date}</h3>
                         <h2 id="textInDetail" >Runtime: {movie.runtime} minutes</h2>
-                        <h3 id="textInDetail" >Budget: {movie.budget == 0 ? "N/A" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
+                        <h3 id="textInDetail" >Budget: {movie.budget == 0 ? "Unavailable" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
                     </div>
 
                     <div className="productionCompanies">
