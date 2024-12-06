@@ -7,7 +7,7 @@ function FooterSection() {
             <div className="infoBox">
                 <h1 className="inFooter">Github</h1>
                 <a className="inFooter" href="https://github.com/WaddlesTheWaffles">My Github</a>
-                <a className="inFooter" href="https://github.com/WaddlesTheWaffles/ICS4U-Assignment-5">Website repository</a>
+                <a className="inFooter" href="https://github.com/WaddlesTheWaffles/ICS4U-Assignment-6">Website repository</a>
             </div>
             <div className="infoBox">
                 <h1 className="inFooter" >Contact Info</h1>
