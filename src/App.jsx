@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { StoreProvider } from "./context";
 import "./App.css";
 import HomeView from "./Views/HomeView";
 import RegisterView from "./Views/RegisterView";
@@ -8,15 +9,17 @@ import DetailView from "./Views/DetailView";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="/register" element={<RegisterView />} />
-        <Route path="/login" element={<LoginView />} />
-        <Route path="/movies" element={<MoviesView />} />
+    <StoreProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="/register" element={<RegisterView />} />
+          <Route path="/login" element={<LoginView />} />
+          <Route path="/movies" element={<MoviesView />} />
           <Route path="/movies/:movieId" element={<DetailView />} />
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </StoreProvider>
   );
 }
 

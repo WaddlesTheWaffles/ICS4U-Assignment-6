@@ -1,21 +1,31 @@
-import "./LoginView.css"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import HeaderSection from "../Components/HeaderSection"
+import "./LoginView.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useStoreContext } from "../context";
+import HeaderSection from "../Components/HeaderSection";
 
 function LoginView() {
     const navigate = useNavigate();
+    const { accountList, setAccountList } = useStoreContext();
+    const { currentEmail, setCurrentEmail } = useStoreContext()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const adminEmail = "admin@gmail.com";
-    const adminPassword = "password1234";
 
-    function loginInfoCheck() {
+    function validateInfo() {
+        if (accountList.length <= 0) { //Checks if any account has been created
+            alert('There are no accounts created')
 
-        if ((email == adminEmail) && (password == adminPassword)) {
-            return true
+        } else if (accountList.find(account => account.email === email)) { //Checks if the email exist inside the list
+            const accountIndex = accountList.findIndex(account => account.email === email)
+            if ((email === accountList[accountIndex].email) && (password === accountList[accountIndex].password)) {
+                setCurrentEmail(email);
+                navigate('/movies')
+
+            } else {
+                alert('Password is incorrect');
+            }
         } else {
-            return false
+            alert('There is no account connected to this email')
         }
     }
 
@@ -24,7 +34,7 @@ function LoginView() {
             <HeaderSection />
             <div className="formContainerLog">
                 <h1 className="formTitleLog" >Login</h1>
-                <form className="formLog" onSubmit={() => loginInfoCheck() ? navigate('/movies') : alert('Password is incorrect')}>
+                <form className="formLog" onSubmit={() => { event.preventDefault(); validateInfo() }}>
                     <label className="boxLabelsLog">Email:</label>
                     <input required className="infoBoxesLog" type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
                     <label className="boxLabelsLog">Password:</label>

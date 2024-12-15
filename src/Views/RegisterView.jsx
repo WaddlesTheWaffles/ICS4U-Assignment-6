@@ -1,10 +1,16 @@
-import "./RegisterView.css"
-import { useState } from "react"
-import { useStoreContext } from "../Context";
+import "./RegisterView.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useStoreContext } from "../context";
 import HeaderSection from "../Components/HeaderSection";
 
 function RegisterView() {
-    const genreList = [
+
+    const navigate = useNavigate();
+    const { genreList, setGenreList } = useStoreContext();
+    const { accountList, setAccountList } = useStoreContext();
+
+    const totalGenreList = [
         { "genreName": "Action", "id": 28 },
         { "genreName": "Adventure", "id": 12 },
         { "genreName": "Animation", "id": 16 },
@@ -21,17 +27,38 @@ function RegisterView() {
         { "genreName": "War", "id": 10752 },
         { "genreName": "Western", "id": 37 }
     ];
-
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
-    let choosenGenreList = [];
+    const [chosenGenreList, setChosenGenreList] = useState([]);
 
+    function submitForm() {
 
-    function rePasswordCheck() { //checks if the re-Entered password is the same
-        if (rePassword == password) {
+        if (rePasswordCheck()) {
+            if (chosenGenreList.length < 10) {
+                alert('Please select minimum 10 genres');
+            } else {
+                setGenreList(chosenGenreList);
+                setAccountList(prevList => { //Creates an object filled with info and adds it the to account list
+
+                    return [...prevList, {
+                        email: email,
+                        password: password,
+                        firstName: firstName,
+                        lastName: lastName
+                    }]
+                })
+                navigate('/login');
+            }
+        } else {
+            alert('Passwords are not the same');
+        }
+    }
+
+    function rePasswordCheck() {
+        if (rePassword === password) {
             return true
         } else {
             return false
@@ -39,7 +66,7 @@ function RegisterView() {
     }
 
     function renderCheckBoxes() {
-        return genreList.map((genre) => (
+        return totalGenreList.map((genre) => (
             <div key={genre.id} className="checkBoxLabelPair">
                 <label htmlFor={(genre.genreName).toLowerCase() + "Genre"} >{genre.genreName}</label>
                 <input type="checkbox" id={(genre.genreName).toLowerCase() + "Genre"} onChange={(event) => { event.target.checked ? addGenreToList(genre) : removeGenreFromList(genre) }} />
@@ -48,13 +75,23 @@ function RegisterView() {
     }
 
     function addGenreToList(genreObject) {
-        console.log("Checked");
-        console.log(genreObject);
+        setChosenGenreList(prevList => {
+            if (prevList.find(item => item.genreName === genreObject.genreName)) {
+                alert('Genre has already been added to the list');
+                return prevList;
+            }
+            return [...prevList, genreObject];
+        });
     }
 
     function removeGenreFromList(genreObject) {
-        console.log("Unchecked");
-        console.log(genreObject)
+        setChosenGenreList(prevList => {
+            if (!prevList.find(item => item.genreName === genreObject.genreName)) {
+                alert('Genre is not in the list');
+                return prevList;
+            }
+            return prevList.filter(item => item.genreName !== genreObject.genreName);
+        });
     }
 
     return (
@@ -62,7 +99,7 @@ function RegisterView() {
             <HeaderSection />
             <div className="formContainerReg">
                 <h1 className="formTitleReg">Register</h1>
-                <form className="formReg" onSubmit={() => rePasswordCheck() ? alert('Unavailable') : alert('Passwords are not the same')} >
+                <form className="formReg" onSubmit={() => { event.preventDefault(); submitForm() }} >
                     <label className="boxLabelsReg" htmlFor="firstNameInfoBox" >First Name:</label>
                     <input required className="infoBoxesReg" id="firstNameInfoBox" type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
                     <label className="boxLabelsReg" htmlFor="lastNameInfoBox" >Last Name:</label>
