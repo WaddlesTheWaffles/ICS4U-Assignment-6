@@ -7,7 +7,7 @@ import HeaderSection from "../Components/HeaderSection";
 function LoginView() {
     const navigate = useNavigate();
     const { accountList, setAccountList } = useStoreContext();
-    const { currentEmail, setCurrentEmail } = useStoreContext()
+    const { currentAccount, setCurrentAccount } = useStoreContext()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,7 +18,7 @@ function LoginView() {
         } else if (accountList.find(account => account.email === email)) { //Checks if the email exist inside the list
             const accountIndex = accountList.findIndex(account => account.email === email)
             if ((email === accountList[accountIndex].email) && (password === accountList[accountIndex].password)) {
-                setCurrentEmail(email);
+                setCurrentAccount(accountList[accountIndex]);
                 navigate('/movies')
 
             } else {

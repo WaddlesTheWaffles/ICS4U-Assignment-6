@@ -36,6 +36,7 @@ button.inHeader {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
     border-radius: 7px;
+    height: 50px;
     width: 100px;
     margin: 25px;
 }

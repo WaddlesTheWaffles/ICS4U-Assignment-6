@@ -7,7 +7,7 @@ import HeaderSection from "../Components/HeaderSection";
 function RegisterView() {
 
     const navigate = useNavigate();
-    const { genreList, setGenreList } = useStoreContext();
+    const { allGenreList, setAllGenreList } = useStoreContext();
     const { accountList, setAccountList } = useStoreContext();
 
     const totalGenreList = [
@@ -35,25 +35,28 @@ function RegisterView() {
     const [chosenGenreList, setChosenGenreList] = useState([]);
 
     function submitForm() {
+        if (!sameEmailChecker()) {
+            if (rePasswordCheck()) {
+                if (chosenGenreList.length < 10) {
+                    alert('Please select minimum 10 genres');
+                } else {
+                    setAllGenreList((prevList) => prevList.set(email, chosenGenreList));
+                    setAccountList(prevList => { //Creates an object filled with info and adds it the to account list
 
-        if (rePasswordCheck()) {
-            if (chosenGenreList.length < 10) {
-                alert('Please select minimum 10 genres');
+                        return [...prevList, {
+                            email: email,
+                            password: password,
+                            firstName: firstName,
+                            lastName: lastName
+                        }]
+                    })
+                    navigate('/login');
+                }
             } else {
-                setGenreList(chosenGenreList);
-                setAccountList(prevList => { //Creates an object filled with info and adds it the to account list
-
-                    return [...prevList, {
-                        email: email,
-                        password: password,
-                        firstName: firstName,
-                        lastName: lastName
-                    }]
-                })
-                navigate('/login');
+                alert('Passwords are not the same');
             }
         } else {
-            alert('Passwords are not the same');
+            alert('This email is already in use');
         }
     }
 
@@ -65,7 +68,17 @@ function RegisterView() {
         }
     }
 
-    function renderCheckBoxes() {
+    function sameEmailChecker() {
+
+        for (let i = 0; i < accountList.length; i++) {
+            if (accountList[i].email == email) {
+                return true
+            }
+        }
+        return false
+    }
+
+    function renderCheckboxes() {
         return totalGenreList.map((genre) => (
             <div key={genre.id} className="checkBoxLabelPair">
                 <label htmlFor={(genre.genreName).toLowerCase() + "Genre"} >{genre.genreName}</label>
@@ -112,7 +125,7 @@ function RegisterView() {
                     <input required className="infoBoxesReg" id="rePasswordInfoBox" type="password" value={rePassword} onChange={(event) => { setRePassword(String(event.target.value)) }} />
 
                     <div className="genreCheckList">
-                        {renderCheckBoxes()}
+                        {renderCheckboxes()}
                     </div>
 
                     <input className="registerButtonReg" type="submit" value={"Register"} />

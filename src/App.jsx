@@ -6,6 +6,7 @@ import RegisterView from "./Views/RegisterView";
 import LoginView from "./Views/LoginView";
 import MoviesView from "./Views/MoviesView";
 import DetailView from "./Views/DetailView";
+import SettingsView from "./Views/SettingsView";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeView />} />
+          <Route path="/settings" element={<SettingsView />} />
           <Route path="/register" element={<RegisterView />} />
           <Route path="/login" element={<LoginView />} />
           <Route path="/movies" element={<MoviesView />} />

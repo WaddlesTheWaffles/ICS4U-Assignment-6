@@ -5,12 +5,12 @@ const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
     const [accountList, setAccountList] = useState([]);
-    const [genreList, setGenreList] = useState([]);
-    const [currentEmail, setCurrentEmail] = useState("")
+    const [allGenreList, setAllGenreList] = useState(Map());
+    const [currentAccount, setCurrentAccount] = useState({})
     const [cart, setCart] = useState(Map());
 
     return (
-        <StoreContext.Provider value={{ accountList, setAccountList, genreList, setGenreList, currentEmail, setCurrentEmail, cart, setCart }}>
+        <StoreContext.Provider value={{ accountList, setAccountList, allGenreList, setAllGenreList, currentAccount, setCurrentAccount, cart, setCart }}>
             {children}
         </StoreContext.Provider>
     );
