@@ -5,7 +5,12 @@ import { useStoreContext } from "../context";
 function HeaderSection() {
 
     const navigate = useNavigate();
-    const { currentAccount } = useStoreContext();
+    const { currentAccount, setCurrentAccount } = useStoreContext();
+
+    function logout() {
+        setCurrentAccount({});
+        navigate('/');
+    }
 
     return (
         <div className="toolbar" >
@@ -18,7 +23,7 @@ function HeaderSection() {
                 : <div>
                     <button className="inHeader" onClick={() => alert('navigate to cart')} >Cart</button>
                     <button className="inHeader" onClick={() => navigate('/settings')} >Settings</button>
-                    <button className="inHeader" onClick={() => alert('logout')} >Logout</button>
+                    <button className="inHeader" onClick={() => logout()} >Logout</button>
                 </div>
             }
         </div>
