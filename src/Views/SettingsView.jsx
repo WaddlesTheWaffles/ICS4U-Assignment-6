@@ -2,7 +2,7 @@ import "./SettingsView.css";
 import HeaderSection from "../Components/HeaderSection";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useStoreContext } from "../context";
+import { useStoreContext } from "../Context";
 
 function SettingsView() {
 

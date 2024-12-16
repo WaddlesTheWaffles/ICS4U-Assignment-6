@@ -1,6 +1,6 @@
 import "./CartView.css";
 import HeaderSection from "../Components/HeaderSection";
-import { useStoreContext } from "../context";
+import { useStoreContext } from "../Context";
 import { useNavigate } from "react-router-dom";
 
 function CartView() {

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { StoreProvider } from "./context";
+import { StoreProvider } from "./Context";
 import "./App.css";
 import HomeView from "./Views/HomeView";
 import RegisterView from "./Views/RegisterView";

@@ -1,7 +1,7 @@
 import "./LoginView.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useStoreContext } from "../context";
+import { useStoreContext } from "../Context";
 import { Map } from 'immutable';
 import HeaderSection from "../Components/HeaderSection";
 

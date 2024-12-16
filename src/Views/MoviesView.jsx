@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useStoreContext } from "../context";
+import { useStoreContext } from '../Context/index.jsx'
 import HeaderSection from '../Components/HeaderSection.jsx'
 import FooterSection from '../Components/FooterSection.jsx'
 import GenresList from "../Components/Genres"

@@ -1,6 +1,6 @@
 import "./HeaderSection.css";
 import { useNavigate } from "react-router-dom";
-import { useStoreContext } from "../context";
+import { useStoreContext } from "../Context";
 
 function HeaderSection() {
 
