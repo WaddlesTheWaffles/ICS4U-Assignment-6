@@ -7,6 +7,7 @@ import LoginView from "./Views/LoginView";
 import MoviesView from "./Views/MoviesView";
 import DetailView from "./Views/DetailView";
 import SettingsView from "./Views/SettingsView";
+import CartView from "./Views/CartView";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route path="/settings" element={<SettingsView />} />
+          <Route path="/cart" element={<CartView />} />
           <Route path="/register" element={<RegisterView />} />
           <Route path="/login" element={<LoginView />} />
           <Route path="/movies" element={<MoviesView />} />

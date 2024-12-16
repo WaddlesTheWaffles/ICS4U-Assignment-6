@@ -2,9 +2,13 @@ import "./detailView.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { useStoreContext } from "../context";
 
 function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
+
     const navigate = useNavigate();
+    const { cart, setCart } = useStoreContext();
+
     const params = useParams();
     const [movie, setMovie] = useState(null); // Start with null
     const [isLoading, setIsLoading] = useState(true); // New loading state
@@ -41,6 +45,18 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                             `https://placehold.co/400x600?text=Movie+Poster+Unavailable+for+${movie.original_title}`}
                         alt={movie.original_title}
                     />
+                    {featureClicked ? <button disabled className="altBuyButton" type="button">Unavailable</button>
+                        : cart.has(movie.id) ? (
+                            <button disabled className="buyButton" type="button">Added</button>
+                        ) : (
+                            <button className="buyButton" type="button" onClick={(event) => {
+                                event.preventDefault();
+                                setCart(cart.set(movie.id, { movieTitle: movie.title, moviePoster: movie.poster_path }));
+                            }}
+                            >
+                                Buy
+                            </button>
+                        )}
                     <div className="movieInfo">
                         <h1 id="textInDetail" >{movie.original_title}</h1>
                         {movie.original_language == "en" ? null : <h1 id="textInDetail" >Translated Title: {movie.title}</h1>}

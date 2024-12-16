@@ -21,7 +21,7 @@ function HeaderSection() {
                     <button className="inHeader" onClick={() => navigate('/login')} >Sign In</button>
                 </div>
                 : <div>
-                    <button className="inHeader" onClick={() => alert('navigate to cart')} >Cart</button>
+                    <button className="inHeader" onClick={() => navigate('/cart')} >Cart</button>
                     <button className="inHeader" onClick={() => navigate('/settings')} >Settings</button>
                     <button className="inHeader" onClick={() => logout()} >Logout</button>
                 </div>

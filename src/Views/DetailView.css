@@ -13,6 +13,7 @@
 
 .movieInfo {
     margin: 5%;
+    margin-top: 0%;
     margin-bottom: 0;
 }
 
@@ -67,4 +68,45 @@
     height: 75px;
     margin: 10px;
     margin-top: 40px;
+}
+
+.backButton:hover {
+    border-style: solid;
+    border-color: goldenrod;
+    border: 3px;
+}
+
+.buyButton {
+    background-color: hotpink;
+    color: white;
+    font-size: 35px;
+    border-radius: 15px;
+    width: 150px;
+    height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.altBuyButton {
+    background-color: hotpink;
+    color: white;
+    font-size: 35px;
+    border-radius: 15px;
+    width: auto;
+    height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.buyButton:enabled:hover {
+    border-style: solid;
+    border-color: goldenrod;
+    border: 3px;
+}
+
+.buyButton:disabled {
+    background-color: rgb(204, 86, 145);
+    color: rgb(210, 210, 210);
 }

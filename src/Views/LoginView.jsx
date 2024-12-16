@@ -2,10 +2,12 @@ import "./LoginView.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../context";
+import { Map } from 'immutable';
 import HeaderSection from "../Components/HeaderSection";
 
 function LoginView() {
     const navigate = useNavigate();
+    const { cart, setCart } = useStoreContext();
     const { accountList, setAccountList } = useStoreContext();
     const { currentAccount, setCurrentAccount } = useStoreContext()
     const [email, setEmail] = useState("");
@@ -19,7 +21,8 @@ function LoginView() {
             const accountIndex = accountList.findIndex(account => account.email === email)
             if ((email === accountList[accountIndex].email) && (password === accountList[accountIndex].password)) {
                 setCurrentAccount(accountList[accountIndex]);
-                navigate('/movies')
+                setCart(cart.clear()) //clears the cart when ever user logins
+                navigate('/movies');
 
             } else {
                 alert('Password is incorrect');

@@ -101,7 +101,7 @@ function SettingsView() {
                 </div>
 
                 <button className="applyButton" type="submit" >Apply Settings</button>
-                <button className="backButtonSettings" type="button" onClick={() => navigate(-1)}>Back</button>
+                <button className="backButtonSettings" type="button" onClick={() => navigate('/movies')}>Back</button>
             </form>
         </div>
     )
