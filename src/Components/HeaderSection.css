@@ -3,7 +3,7 @@
     z-index: 1000;
     border-bottom-color: hotpink;
     border-style: solid;
-    height: 100px;
+    height: 75px;
     top: 0px;
     position: sticky;
     display: flex;
@@ -36,13 +36,30 @@ button.inHeader {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
     border-radius: 7px;
-    height: 50px;
     width: 100px;
-    margin: 25px;
 }
 
 button.inHeader:hover {
     border: 2px;
     border-style: solid;
     border-color: gold;
+}
+
+@media all and (display-mode: browser) {
+    button.inHeader {
+        height: 50px;
+        margin-top: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+}
+
+@media all and (display-mode: fullscreen) {
+    .toolbar {
+        height: 100px;
+    }
+    button.inHeader {
+        height: 55px;
+        margin: 25px;
+    }
 }

@@ -3,6 +3,18 @@
     justify-content: center;
 }
 
+@media all and (display-mode: browser) {
+    .formContainerLog {
+        margin-top: 5%;
+    }
+}
+
+@media all and (display-mode: fullscreen) {
+    .formContainerLog {
+        margin: 12%;
+    }
+}
+
 .formLog {
     background-color: rgb(26, 24, 25);
     border-radius: 15px;

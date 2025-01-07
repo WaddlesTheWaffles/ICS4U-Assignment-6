@@ -3,12 +3,18 @@
     justify-content: center;
 }
 
+@media all and (display-mode: fullscreen) {
+    .formContainerReg {
+        margin: 5%;
+    }
+}
+
 .formReg {
     background-color: rgb(26, 24, 25);
     border-radius: 15px;
     position: fixed;
-    margin-top: 6%;
-    width: 450px;
+    margin-top: 8%;
+    width: 420px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -33,11 +39,20 @@
 }
 
 .registerButtonReg {
+    background-color: hotpink;
+    color: white;
+    border-radius: 7px;
     margin-top: 6%;
     margin-bottom: 3%;
     margin-left: 20%;
     margin-right: 20%;
     height: 30px;
+}
+
+.registerButtonReg:hover {
+    border: 2px;
+    border-style: solid;
+    border-color: gold;
 }
 
 .genreCheckList {
