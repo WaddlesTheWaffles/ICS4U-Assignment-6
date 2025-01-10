@@ -1,21 +1,21 @@
-.formContainerLog {
+.formContainer {
     display: flex;
     justify-content: center;
 }
 
 @media all and (display-mode: browser) {
-    .formContainerLog {
+    .formContainer {
         margin-top: 5%;
     }
 }
 
 @media all and (display-mode: fullscreen) {
-    .formContainerLog {
+    .formContainer {
         margin: 12%;
     }
 }
 
-.formLog {
+.form {
     background-color: rgb(26, 24, 25);
     border-radius: 15px;
     position: fixed;
@@ -26,27 +26,36 @@
     flex-direction: column;
 }
 
-.formTitleLog {
+.formTitle {
     color: hotpink;
     font-size: 50px;
     margin-top: 5%;
 }
 
-.boxLabelsLog {
+.boxLabels {
     color: hotpink;
     margin-left: 10%;
     margin-top: 8%;
     margin-bottom: 1%;
 }
 
-.infoBoxesLog {
+.infoBoxes {
     margin-left: 10%;
     margin-right: 10%;
 }
 
-.loginButtonLog {
+.loginButton {
+    background-color: hotpink;
+    color: white;
+    border-radius: 7px;
     margin-top: 10%;
     margin-left: 20%;
     margin-right: 20%;
     height: 30px;
+}
+
+.loginButton:hover {
+    border: 2px;
+    border-style: solid;
+    border-color: gold;
 }

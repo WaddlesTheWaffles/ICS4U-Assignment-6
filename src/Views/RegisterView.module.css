@@ -1,15 +1,15 @@
-.formContainerReg {
+.formContainer {
     display: flex;
     justify-content: center;
 }
 
 @media all and (display-mode: fullscreen) {
-    .formContainerReg {
+    .formContainer {
         margin: 5%;
     }
 }
 
-.formReg {
+.form {
     background-color: rgb(26, 24, 25);
     border-radius: 15px;
     position: fixed;
@@ -20,25 +20,25 @@
     flex-direction: column;
 }
 
-.formTitleReg {
+.formTitle {
     color: hotpink;
     font-size: 50px;
     margin-top: 2%;
 }
 
-.boxLabelsReg {
+.boxLabels {
     color: hotpink;
     margin-left: 10%;
     margin-top: 8%;
     margin-bottom: 1%;
 }
 
-.infoBoxesReg {
+.infoBoxes {
     margin-left: 10%;
     margin-right: 10%;
 }
 
-.registerButtonReg {
+.registerButton {
     background-color: hotpink;
     color: white;
     border-radius: 7px;
@@ -49,7 +49,7 @@
     height: 30px;
 }
 
-.registerButtonReg:hover {
+.registerButton:hover {
     border: 2px;
     border-style: solid;
     border-color: gold;

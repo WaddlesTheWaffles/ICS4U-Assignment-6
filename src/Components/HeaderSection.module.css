@@ -10,7 +10,7 @@
     justify-content: space-around;
 }
 
-h1.inHeader {
+.title {
     color: hotpink;
     font-family: verdana, Helvetica, sans-serif;
     margin-top: auto;
@@ -20,17 +20,17 @@ h1.inHeader {
     position: relative;
 }
 
-h1.inHeader:hover {
+.title:hover {
     text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff,
         1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
 }
 
-#gold {
+.gold {
     color: gold;
     font-family: verdana, Helvetica, sans-serif;
 }
 
-button.inHeader {
+.button {
     background-color: hotpink;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -39,14 +39,14 @@ button.inHeader {
     width: 100px;
 }
 
-button.inHeader:hover {
+.button:hover {
     border: 2px;
     border-style: solid;
     border-color: gold;
 }
 
 @media all and (display-mode: browser) {
-    button.inHeader {
+    .button {
         height: 50px;
         margin-top: 10px;
         margin-left: 25px;
@@ -58,7 +58,7 @@ button.inHeader:hover {
     .toolbar {
         height: 100px;
     }
-    button.inHeader {
+    .button {
         height: 55px;
         margin: 25px;
     }

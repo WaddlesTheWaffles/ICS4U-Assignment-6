@@ -1,4 +1,4 @@
-import "./RegisterView.css";
+import styles from './RegisterView.module.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../Context";
@@ -80,7 +80,7 @@ function RegisterView() {
 
     function renderCheckboxes() {
         return totalGenreList.map((genre) => (
-            <div key={genre.id} className="checkBoxLabelPair">
+            <div key={genre.id} className={styles.checkBoxLabelPair}>
                 <label htmlFor={(genre.genreName).toLowerCase() + "Genre"} >{genre.genreName}</label>
                 <input type="checkbox" id={(genre.genreName).toLowerCase() + "Genre"} onChange={(event) => { event.target.checked ? addGenreToList(genre) : removeGenreFromList(genre) }} />
             </div>
@@ -110,25 +110,25 @@ function RegisterView() {
     return (
         <div>
             <HeaderSection />
-            <div className="formContainerReg">
-                <h1 className="formTitleReg">Register</h1>
-                <form className="formReg" onSubmit={() => { event.preventDefault(); submitForm() }} >
-                    <label className="boxLabelsReg" htmlFor="firstNameInfoBox" >First Name:</label>
-                    <input required className="infoBoxesReg" id="firstNameInfoBox" type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
-                    <label className="boxLabelsReg" htmlFor="lastNameInfoBox" >Last Name:</label>
-                    <input required className="infoBoxesReg" id="lastNameInfoBox" type="text" value={lastName} onChange={(event) => { setLastName(String(event.target.value)) }} />
-                    <label className="boxLabelsReg" htmlFor="emailInfoBox" >Email:</label>
-                    <input required className="infoBoxesReg" id="emailInfoBox" type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
-                    <label className="boxLabelsReg" htmlFor="passwordInfoBox" >Pasword:</label>
-                    <input required className="infoBoxesReg" id="passwordInfoBox" type="password" value={password} onChange={(event) => { setPassword(String(event.target.value)) }} />
-                    <label className="boxLabelsReg" htmlFor="rePasswordInfoBox" >Re-enter Password:</label>
-                    <input required className="infoBoxesReg" id="rePasswordInfoBox" type="password" value={rePassword} onChange={(event) => { setRePassword(String(event.target.value)) }} />
+            <div className={styles.formContainer}>
+                <h1 className={styles.formTitle}>Register</h1>
+                <form className={styles.form} onSubmit={() => { event.preventDefault(); submitForm() }} >
+                    <label className={styles.boxLabels} htmlFor="firstNameInfoBox" >First Name:</label>
+                    <input required className={styles.infoBoxes} id="firstNameInfoBox" type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
+                    <label className={styles.boxLabels} htmlFor="lastNameInfoBox" >Last Name:</label>
+                    <input required className={styles.infoBoxes} id="lastNameInfoBox" type="text" value={lastName} onChange={(event) => { setLastName(String(event.target.value)) }} />
+                    <label className={styles.boxLabels} htmlFor="emailInfoBox" >Email:</label>
+                    <input required className={styles.infoBoxes} id="emailInfoBox" type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
+                    <label className={styles.boxLabels} htmlFor="passwordInfoBox" >Pasword:</label>
+                    <input required className={styles.infoBoxes} id="passwordInfoBox" type="password" value={password} onChange={(event) => { setPassword(String(event.target.value)) }} />
+                    <label className={styles.boxLabels} htmlFor="rePasswordInfoBox" >Re-enter Password:</label>
+                    <input required className={styles.infoBoxes} id="rePasswordInfoBox" type="password" value={rePassword} onChange={(event) => { setRePassword(String(event.target.value)) }} />
 
-                    <div className="genreCheckList">
+                    <div className={styles.genreCheckList}>
                         {renderCheckboxes()}
                     </div>
 
-                    <input className="registerButtonReg" type="submit" value={"Register"} />
+                    <input className={styles.registerButton} type="submit" value={"Register"} />
                 </form>
             </div>
         </div>

@@ -1,13 +1,13 @@
-import "./HeroSection.css";
+import styles from './HeroSection.module.css';
 import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
     const navigate = useNavigate();
 
     return (
-        <div className="heroSection" >
-            <h1 className="inHero">Start Renting Movies Now</h1>
-            <button className="inHero" onClick={() => navigate('/register')}>Sign Up</button>
+        <div className={styles.heroSection} >
+            <h1 className={styles.title}>Start Renting Movies Now</h1>
+            <button className={styles.signUpButton} onClick={() => navigate('/register')}>Sign Up</button>
         </div>
     )
 }

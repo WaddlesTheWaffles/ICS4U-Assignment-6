@@ -1,4 +1,4 @@
-import "./LoginView.css";
+import styles from './LoginView.module.css'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../Context";
@@ -35,15 +35,15 @@ function LoginView() {
     return (
         <div>
             <HeaderSection />
-            <div className="formContainerLog">
-                <h1 className="formTitleLog" >Login</h1>
-                <form className="formLog" onSubmit={() => { event.preventDefault(); validateInfo() }}>
-                    <label className="boxLabelsLog">Email:</label>
-                    <input required className="infoBoxesLog" type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
-                    <label className="boxLabelsLog">Password:</label>
-                    <input required className="infoBoxesLog" type="password" value={password} onChange={(event) => { setPassword(String(event.target.value)) }} />
+            <div className={styles.formContainer}>
+                <h1 className={styles.formTitle} >Login</h1>
+                <form className={styles.form} onSubmit={() => { event.preventDefault(); validateInfo() }}>
+                    <label className={styles.boxLabels}>Email:</label>
+                    <input required className={styles.infoBoxes} type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
+                    <label className={styles.boxLabels}>Password:</label>
+                    <input required className={styles.infoBoxes} type="password" value={password} onChange={(event) => { setPassword(String(event.target.value)) }} />
 
-                    <input className="loginButtonLog" type="submit" value={"Login"} />
+                    <input className={styles.loginButton} type="submit" value={"Login"} />
                 </form>
             </div>
         </div>

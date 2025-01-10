@@ -14,7 +14,7 @@
     gap: 10px;
 }
 
-h1.inFooter {
+.inFooter {
     color: hotpink;
     font-family: 'Times New Roman', Times, serif;
     font-size: 50px;
@@ -23,20 +23,20 @@ h1.inFooter {
     margin-bottom: 0px;
 }
 
-p.inFooter {
+.inFooter {
     color: gold;
     font-size: 20px;
 }
 
-a.inFooter:link {
+.inFooter:link {
     color: gold;
     font-size: 20px; 
 }
 
-a.inFooter:hover{
+.inFooter:hover{
     color: goldenrod;
 }
 
-a.inFooter:visited {
+.inFooter:visited {
     color: rgb(179, 132, 14);
 }

@@ -10,13 +10,13 @@
     align-items: center;
 }
 
-h1.inHero {
+.title {
     color: hotpink;
     font-family: verdana, Helvetica, sans-serif;
     font-size: 75px;
 }
 
-button.inHero {
+.signUpButton {
     background-color: hotpink;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -27,7 +27,7 @@ button.inHero {
     margin: 25px;
 }
 
-button.inHero:hover {
+.signUpButton:hover {
     border: 2px;
     border-style: solid;
     border-color: gold;
