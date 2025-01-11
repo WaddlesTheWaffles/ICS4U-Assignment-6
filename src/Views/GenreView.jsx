@@ -37,10 +37,10 @@ function GenreView({ genreId, enterDetailView }) {
         } else {
             return (
                 <div>
-                    <div id="inGenre" className={styles.moviesContainer}>
+                    <div className={styles.moviesContainer}>
                         {movies.map((movie) => (
-                            <div key={movie.id} id="inGenre" className={styles.moviePoster}>
-                                <div id="inGenre" className={styles.posterContainer} onClick={() => enterDetailView(movie.id)}>
+                            <div key={movie.id} className={styles.moviePoster}>
+                                <div className={styles.posterContainer} onClick={() => enterDetailView(movie.id)}>
                                     <img
                                         src={movie.poster_path ?
                                             `https://image.tmdb.org/t/p/w400${movie.poster_path}`
@@ -48,7 +48,7 @@ function GenreView({ genreId, enterDetailView }) {
                                         alt={movie.title}
                                     />
                                 </div>
-                                <h1 id="inGenre" className={styles.movieTitle}>{movie.title}</h1>
+                                <h1 className={styles.movieTitle}>{movie.title}</h1>
                             </div>
                         ))}
                     </div>

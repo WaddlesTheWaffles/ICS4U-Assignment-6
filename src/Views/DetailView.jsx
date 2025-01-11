@@ -39,7 +39,7 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                 <div>Loading...</div> //Shows a loading message
             ) : (
                 <>
-                    <img id="inDetail" className={styles.moviePoster}
+                    <img className={styles.moviePoster}
                         src={movie.poster_path ?
                             `https://image.tmdb.org/t/p/w400${movie.poster_path}` :
                             `https://placehold.co/400x600?text=Movie+Poster+Unavailable+for+${movie.original_title}`}
@@ -58,24 +58,24 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                             </button>
                         )}
                     <div className={styles.movieInfo}>
-                        <h1 id="textInDetail" >{movie.original_title}</h1>
-                        {movie.original_language == "en" ? null : <h1 id="textInDetail" >Translated Title: {movie.title}</h1>}
-                        <p id="textInDetail" >Description:<br />{movie.overview}</p>
-                        <h3 id="textInDetail" >Released Date: {movie.release_date}</h3>
-                        <h2 id="textInDetail" >Runtime: {movie.runtime} minutes</h2>
-                        <h3 id="textInDetail" >Budget: {movie.budget == 0 ? "Unavailable" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
+                        <h1 id="text" >{movie.original_title}</h1>
+                        {movie.original_language == "en" ? null : <h1 id="text" >Translated Title: {movie.title}</h1>}
+                        <p id="text" >Description:<br />{movie.overview}</p>
+                        <h3 id="text" >Released Date: {movie.release_date}</h3>
+                        <h2 id="text" >Runtime: {movie.runtime} minutes</h2>
+                        <h3 id="text" >Budget: {movie.budget == 0 ? "Unavailable" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
                     </div>
 
                     <div className={styles.productionCompanies}>
-                        <h1 id="textInDetail">Production Companies</h1>
+                        <h1 id="text">Production Companies</h1>
                         <ul className={styles.companiesList}>
                             {movie.production_companies.map((company) => (
-                                <li id="textInDetail" key={company.id}>{company.name}</li>
+                                <li id="text" key={company.id}>{company.name}</li>
                             ))}
                         </ul>
                     </div>
 
-                    <h1 id="textInDetail" className={styles.trailerTitle}>Teaser Trailers:</h1>
+                    <h1 id="text" className={styles.trailerTitle}>Teaser Trailers:</h1>
                     <div className={styles.teaserTrailers}>
                         {movie.videos && movie.videos.results.map((trailer) => (
                             trailer.type == "Teaser" || trailer.type == "Trailer" || trailer.type == "Clip" ? (

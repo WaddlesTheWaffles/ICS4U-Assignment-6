@@ -61,8 +61,8 @@ function FeatureSection() {
 
         postersRendered++;
         return (
-            <div key={movie.id} id="inFeature" className={styles.moviePoster}>
-                <div id="inFeature" className={styles.posterContainer} onClick={() => navigate(`/movies/${movie.id}`)}>
+            <div key={movie.id} className={styles.moviePoster}>
+                <div className={styles.posterContainer} onClick={() => navigate(`/movies/${movie.id}`)}>
                     <img
                         src={movie.poster_path ?
                             `https://image.tmdb.org/t/p/w400${movie.poster_path}`
@@ -70,16 +70,16 @@ function FeatureSection() {
                         alt={movie.title}
                     />
                 </div>
-                <h1 id="inFeature" className={styles.title}>{movie.title}</h1>
+                <h1 className={styles.title}>{movie.title}</h1>
             </div>
         )
     }
 
     let postersRendered = 0;
     return (
-        <div id="inFeature" className={styles.featureSection}>
-            <h1 id="inFeature" className={styles.sectionTitle}>Currently Playing</h1>
-            <div id="inFeature" className={styles.movieContainer}>
+        <div className={styles.featureSection}>
+            <h1 className={styles.sectionTitle}>Currently Playing</h1>
+            <div className={styles.movieContainer}>
                 {fetchingMovies ? <p>Loading...</p> : ( //multiple checks for if the movies array is filled, BUG: only 2 posters will load reason unknown
                     <>
                         {movies.length > 19 && renderMoviePosters(movie1)}

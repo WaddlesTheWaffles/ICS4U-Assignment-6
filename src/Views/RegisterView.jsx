@@ -114,15 +114,15 @@ function RegisterView() {
                 <h1 className={styles.formTitle}>Register</h1>
                 <form className={styles.form} onSubmit={() => { event.preventDefault(); submitForm() }} >
                     <label className={styles.boxLabels} htmlFor="firstNameInfoBox" >First Name:</label>
-                    <input required className={styles.infoBoxes} id="firstNameInfoBox" type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
+                    <input required className={styles.infoBoxes} type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
                     <label className={styles.boxLabels} htmlFor="lastNameInfoBox" >Last Name:</label>
-                    <input required className={styles.infoBoxes} id="lastNameInfoBox" type="text" value={lastName} onChange={(event) => { setLastName(String(event.target.value)) }} />
+                    <input required className={styles.infoBoxes} type="text" value={lastName} onChange={(event) => { setLastName(String(event.target.value)) }} />
                     <label className={styles.boxLabels} htmlFor="emailInfoBox" >Email:</label>
-                    <input required className={styles.infoBoxes} id="emailInfoBox" type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
+                    <input required className={styles.infoBoxes} type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
                     <label className={styles.boxLabels} htmlFor="passwordInfoBox" >Pasword:</label>
-                    <input required className={styles.infoBoxes} id="passwordInfoBox" type="password" value={password} onChange={(event) => { setPassword(String(event.target.value)) }} />
+                    <input required className={styles.infoBoxes} type="password" value={password} onChange={(event) => { setPassword(String(event.target.value)) }} />
                     <label className={styles.boxLabels} htmlFor="rePasswordInfoBox" >Re-enter Password:</label>
-                    <input required className={styles.infoBoxes} id="rePasswordInfoBox" type="password" value={rePassword} onChange={(event) => { setRePassword(String(event.target.value)) }} />
+                    <input required className={styles.infoBoxes} type="password" value={rePassword} onChange={(event) => { setRePassword(String(event.target.value)) }} />
 
                     <div className={styles.genreCheckList}>
                         {renderCheckboxes()}
