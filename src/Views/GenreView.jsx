@@ -1,4 +1,4 @@
-import "./GenreView.css"
+import styles from './GenreView.module.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -37,10 +37,10 @@ function GenreView({ genreId, enterDetailView }) {
         } else {
             return (
                 <div>
-                    <div id="inGenre" className="moviesContainer">
+                    <div id="inGenre" className={styles.moviesContainer}>
                         {movies.map((movie) => (
-                            <div key={movie.id} id="inGenre" className="moviePoster">
-                                <div id="inGenre" className="posterContainer" onClick={() => enterDetailView(movie.id)}>
+                            <div key={movie.id} id="inGenre" className={styles.moviePoster}>
+                                <div id="inGenre" className={styles.posterContainer} onClick={() => enterDetailView(movie.id)}>
                                     <img
                                         src={movie.poster_path ?
                                             `https://image.tmdb.org/t/p/w400${movie.poster_path}`
@@ -48,14 +48,14 @@ function GenreView({ genreId, enterDetailView }) {
                                         alt={movie.title}
                                     />
                                 </div>
-                                <h1 id="inGenre" className="movieTitle">{movie.title}</h1>
+                                <h1 id="inGenre" className={styles.movieTitle}>{movie.title}</h1>
                             </div>
                         ))}
                     </div>
-                    <div className="pageSelector">
-                        <button className="prevButton" onClick={() => page > 1 ? setPage(page - 1) : alert('You are on the first page, there is no previous page.')} >Previous</button>
-                        <input className="pageNumberBox" type="number" min={1} max={maxPages} value={page} onChange={(event) => { Number(event.target.value) >= 1 && Number(event.target.value) <= maxPages ? setPage(Number(event.target.value)) : alert('Page Does not exist') }} />
-                        <button className="nextButton" onClick={() => page < maxPages ? setPage(page + 1) : alert('You are on the last page, there is no last page')}>Next</button>
+                    <div className={styles.pageSelector}>
+                        <button className={styles.prevButton} onClick={() => page > 1 ? setPage(page - 1) : alert('You are on the first page, there is no previous page.')} >Previous</button>
+                        <input className={styles.pageNumberBox} type="number" min={1} max={maxPages} value={page} onChange={(event) => { Number(event.target.value) >= 1 && Number(event.target.value) <= maxPages ? setPage(Number(event.target.value)) : alert('Page Does not exist') }} />
+                        <button className={styles.nextButton} onClick={() => page < maxPages ? setPage(page + 1) : alert('You are on the last page, there is no last page')}>Next</button>
                     </div>
                 </div>
             )

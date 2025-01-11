@@ -1,4 +1,4 @@
-import "./DetailView.css";
+import styles from './DetailView.module.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -34,22 +34,22 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
     }, [movieId]);
 
     return (
-        <div className="movieDetails">
+        <div className={styles.movieDetails}>
             {isLoading ? (
                 <div>Loading...</div> //Shows a loading message
             ) : (
                 <>
-                    <img id="inDetail" className="moviePoster"
+                    <img id="inDetail" className={styles.moviePoster}
                         src={movie.poster_path ?
                             `https://image.tmdb.org/t/p/w400${movie.poster_path}` :
                             `https://placehold.co/400x600?text=Movie+Poster+Unavailable+for+${movie.original_title}`}
                         alt={movie.original_title}
                     />
-                    {featureClicked ? <button disabled className="altBuyButton" type="button">Unavailable</button>
+                    {featureClicked ? <button disabled className={styles.altBuyButton} type="button">Unavailable</button>
                         : cart.has(movie.id) ? (
-                            <button disabled className="buyButton" type="button">Added</button>
+                            <button disabled className={styles.buyButton} type="button">Added</button>
                         ) : (
-                            <button className="buyButton" type="button" onClick={(event) => {
+                            <button className={styles.buyButton} type="button" onClick={(event) => {
                                 event.preventDefault();
                                 setCart(cart.set(movie.id, { movieTitle: movie.title, moviePoster: movie.poster_path }));
                             }}
@@ -57,7 +57,7 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                                 Buy
                             </button>
                         )}
-                    <div className="movieInfo">
+                    <div className={styles.movieInfo}>
                         <h1 id="textInDetail" >{movie.original_title}</h1>
                         {movie.original_language == "en" ? null : <h1 id="textInDetail" >Translated Title: {movie.title}</h1>}
                         <p id="textInDetail" >Description:<br />{movie.overview}</p>
@@ -66,25 +66,25 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                         <h3 id="textInDetail" >Budget: {movie.budget == 0 ? "Unavailable" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
                     </div>
 
-                    <div className="productionCompanies">
+                    <div className={styles.productionCompanies}>
                         <h1 id="textInDetail">Production Companies</h1>
-                        <ul className="companiesList">
+                        <ul className={styles.companiesList}>
                             {movie.production_companies.map((company) => (
                                 <li id="textInDetail" key={company.id}>{company.name}</li>
                             ))}
                         </ul>
                     </div>
 
-                    <h1 id="textInDetail" className="trailerTitle">Teaser Trailers:</h1>
-                    <div className="teaserTrailers">
+                    <h1 id="textInDetail" className={styles.trailerTitle}>Teaser Trailers:</h1>
+                    <div className={styles.teaserTrailers}>
                         {movie.videos && movie.videos.results.map((trailer) => (
                             trailer.type == "Teaser" || trailer.type == "Trailer" || trailer.type == "Clip" ? (
-                                <div key={trailer.id} className="trailerTile">
+                                <div key={trailer.id} className={styles.trailerTile}>
                                     <a href={`https://www.youtube.com/watch?v=${trailer.key}`} target="_blank" rel="noopener noreferrer">
-                                        <img className="trailerThumbnail"
+                                        <img className={styles.trailerThumbnail}
                                             src={`https://img.youtube.com/vi/${trailer.key}/0.jpg`}
                                             alt={trailer.name} />
-                                        <h3 className="trailerName">{trailer.name}</h3>
+                                        <h3 className={styles.trailerName}>{trailer.name}</h3>
                                     </a>
                                 </div>
                             ) : null
@@ -93,8 +93,8 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                 </>
             )}
             {featureClicked ?
-                <button className="backButton" onClick={() => navigate(-1)}>Back</button>
-                : <button className="backButton" onClick={() => backToGenre()}>Back</button>}
+                <button className={styles.backButton} onClick={() => navigate(-1)}>Back</button>
+                : <button className={styles.backButton} onClick={() => backToGenre()}>Back</button>}
         </div>
     );
 }

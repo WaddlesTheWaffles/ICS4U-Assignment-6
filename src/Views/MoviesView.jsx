@@ -5,7 +5,7 @@ import FooterSection from '../Components/FooterSection.jsx'
 import GenresList from "../Components/Genres"
 import GenreView from './GenreView.jsx'
 import DetailView from './DetailView.jsx'
-import "./MoviesView.css"
+import styles from './MoviesView.module.css'
 
 function MoviesView() {
    const { allGenreList, setAllGenreList } = useStoreContext();
@@ -36,13 +36,13 @@ function MoviesView() {
       <div>
          <HeaderSection />
          <div>
-            <h1 className='welcomeTitle' >Welcome {currentAccount.firstName} {currentAccount.lastName}</h1>
+            <h1 className={styles.welcomeTitle} >Welcome {currentAccount.firstName} {currentAccount.lastName}</h1>
          </div>
-         <div className='genreSection'>
-            <div className='genreList' >
+         <div className={styles.genreSection}>
+            <div className={styles.genreList} >
                <GenresList selectGenreId={setGenreId} genresList={genreList} genreSelected={genreSelected} />
             </div>
-            <div className='genreView' >
+            <div className={styles.genreView} >
                {detailViewDisplayed ?
                   <DetailView movieId={movieIdClicked} backToGenre={returnToGenreView} clickedFromFeature={clickedFromFeature} />
                   : <GenreView genreId={genreSelected} enterDetailView={setMovieIdValue} />}

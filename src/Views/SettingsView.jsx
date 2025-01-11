@@ -1,4 +1,4 @@
-import "./SettingsView.css";
+import styles from './SettingsView.module.css'
 import HeaderSection from "../Components/HeaderSection";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ function SettingsView() {
 
     function renderCheckboxes() {
         return totalGenreList.map((genre) => (
-            <div key={genre.id} className="labelCheckboxPair">
+            <div key={genre.id} className={styles.labelCheckboxPair}>
                 <label htmlFor={(genre.genreName).toLowerCase() + "Genre"} >{genre.genreName}</label>
                 {chosenGenreList.some(item => item.id === genre.id)
                     ? <input checked type="checkbox" id={(genre.genreName).toLowerCase() + "Genre"} onChange={(event) => { event.target.checked ? addGenreToList(genre) : removeGenreFromList(genre) }} />
@@ -83,25 +83,25 @@ function SettingsView() {
     return (
         <div>
             <HeaderSection />
-            <h1 className="pageTitle" >Settings</h1>
-            <form className="settingsForm" onSubmit={(event) => { event.preventDefault(); applyChanges(); }}>
-                <div className="accountInfo" >
-                    <h2 className="infoTitle" >Account Info</h2>
-                    <label className="settingsBoxLabel" >First Name</label>
-                    <input required className="settingsInfoBox" type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
-                    <label className="settingsBoxLabel" >Last Name</label>
-                    <input required className="settingsInfoBox" type="text" value={lastName} onChange={(event) => { setLastName(String(event.target.value)) }} />
-                    <label className="settingsBoxLabel" >Email</label>
-                    <input disabled className="settingsInfoBox" type="text" value={email} />
+            <h1 className={styles.pageTitle} >Settings</h1>
+            <form className={styles.settingsForm} onSubmit={(event) => { event.preventDefault(); applyChanges(); }}>
+                <div className={styles.accountInfo} >
+                    <h2 className={styles.infoTitle} >Account Info</h2>
+                    <label className={styles.settingsBoxLabel} >First Name</label>
+                    <input required className={styles.settingsInfoBox} type="text" value={firstName} onChange={(event) => { setFirstName(String(event.target.value)) }} />
+                    <label className={styles.settingsBoxLabel} >Last Name</label>
+                    <input required className={styles.settingsInfoBox} type="text" value={lastName} onChange={(event) => { setLastName(String(event.target.value)) }} />
+                    <label className={styles.settingsBoxLabel} >Email</label>
+                    <input disabled className={styles.settingsInfoBox} type="text" value={email} />
                 </div>
 
-                <div className="genresSelection" >
-                    <h2 className="genreTitle" >Genres Selected</h2>
+                <div className={styles.genresSelection} >
+                    <h2 className={styles.genreTitle} >Genres Selected</h2>
                     {renderCheckboxes()}
                 </div>
 
-                <button className="applyButton" type="submit" >Apply Settings</button>
-                <button className="backButtonSettings" type="button" onClick={() => navigate('/movies')}>Back</button>
+                <button className={styles.applyButton} type="submit" >Apply Settings</button>
+                <button className={styles.backButtonSettings} type="button" onClick={() => navigate('/movies')}>Back</button>
             </form>
         </div>
     )
