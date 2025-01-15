@@ -14,29 +14,29 @@
     gap: 10px;
 }
 
-.inFooter {
+.text {
     color: hotpink;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 50px;
+    font-size: 20px;
     font-weight: normal;
     font-style: normal;
     margin-bottom: 0px;
 }
 
-.inFooter {
+.title {
     color: gold;
-    font-size: 20px;
+    font-size: 30px;
 }
 
-.inFooter:link {
+.textLink:link {
     color: gold;
     font-size: 20px; 
 }
 
-.inFooter:hover{
+.textLink:hover{
     color: goldenrod;
 }
 
-.inFooter:visited {
-    color: rgb(179, 132, 14);
+.textLink:visited {
+    color: rgb(138, 101, 10);
 }

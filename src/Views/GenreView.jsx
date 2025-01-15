@@ -1,8 +1,10 @@
 import styles from './GenreView.module.css';
 import { useState, useEffect } from "react";
+import { useStoreContext } from '../Context';
 import axios from "axios";
 
 function GenreView({ genreId, enterDetailView }) {
+    const { cart, setCart } = useStoreContext();
     const [fetchingMovies, setFetchingMovies] = useState(true);
     const [movies, setMovies] = useState([]);
     const [maxPages, setMaxPages] = useState(1)
@@ -49,6 +51,14 @@ function GenreView({ genreId, enterDetailView }) {
                                     />
                                 </div>
                                 <h1 className={styles.movieTitle}>{movie.title}</h1>
+                                {cart.has(movie.id) ? (
+                                <button disabled className={styles.buyButton} type="button">Added</button>
+                                ) : (
+                                <button className={styles.buyButton} type="button" onClick={(event) => {
+                                    event.preventDefault();
+                                    setCart(cart.set(movie.id, { movieTitle: movie.title, moviePoster: movie.poster_path }));
+                                }}>Buy</button>
+                                )}
                             </div>
                         ))}
                     </div>

@@ -37,9 +37,9 @@
 
 .movieTitle {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     color: hotpink;
-    padding: 10px;
+    margin-top: 15px;
 }
 
 .pageSelector {
@@ -69,4 +69,19 @@
     border-radius: 10px;
     height: 40px;
     width: 100px;
+}
+
+.buyButton {
+    background-color: hotpink;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    margin-top: 0px;
+}
+
+.buyButton:disabled {
+    background-color: rgb(180, 73, 127);
+    color: rgb(185, 184, 184);
 }

@@ -58,24 +58,24 @@ function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
                             </button>
                         )}
                     <div className={styles.movieInfo}>
-                        <h1 id="text" >{movie.original_title}</h1>
-                        {movie.original_language == "en" ? null : <h1 id="text" >Translated Title: {movie.title}</h1>}
-                        <p id="text" >Description:<br />{movie.overview}</p>
-                        <h3 id="text" >Released Date: {movie.release_date}</h3>
-                        <h2 id="text" >Runtime: {movie.runtime} minutes</h2>
-                        <h3 id="text" >Budget: {movie.budget == 0 ? "Unavailable" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
+                        <h1 className={styles.text} >{movie.original_title}</h1>
+                        {movie.original_language == "en" ? null : <h1 className={styles.text} >Translated Title: {movie.title}</h1>}
+                        <p className={styles.text} >Description:<br />{movie.overview}</p>
+                        <h3 className={styles.text} >Released Date: {movie.release_date}</h3>
+                        <h2 className={styles.text} >Runtime: {movie.runtime} minutes</h2>
+                        <h3 className={styles.text} >Budget: {movie.budget == 0 ? "Unavailable" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
                     </div>
 
                     <div className={styles.productionCompanies}>
-                        <h1 id="text">Production Companies</h1>
+                        <h1 className={styles.text}>Production Companies</h1>
                         <ul className={styles.companiesList}>
                             {movie.production_companies.map((company) => (
-                                <li id="text" key={company.id}>{company.name}</li>
+                                <li className={styles.text} key={company.id}>{company.name}</li>
                             ))}
                         </ul>
                     </div>
 
-                    <h1 id="text" className={styles.trailerTitle}>Teaser Trailers:</h1>
+                    <h1 className={`${styles.trailerTitle} ${styles.text}`}>Teaser Trailers:</h1>
                     <div className={styles.teaserTrailers}>
                         {movie.videos && movie.videos.results.map((trailer) => (
                             trailer.type == "Teaser" || trailer.type == "Trailer" || trailer.type == "Clip" ? (
