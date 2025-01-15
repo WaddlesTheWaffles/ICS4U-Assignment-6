@@ -8,6 +8,7 @@ import MoviesView from "./Views/MoviesView";
 import DetailView from "./Views/DetailView";
 import SettingsView from "./Views/SettingsView";
 import CartView from "./Views/CartView";
+import ErrorView from "./Views/ErrorView";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<LoginView />} />
           <Route path="/movies" element={<MoviesView />} />
           <Route path="/movies/:movieId" element={<DetailView />} />
+          <Route path="*" element={<ErrorView />} />
         </Routes>
       </BrowserRouter>
     </StoreProvider>
