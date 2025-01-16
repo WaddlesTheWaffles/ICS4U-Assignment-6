@@ -14,7 +14,7 @@ function HeaderSection() {
 
     return (
         <div className={styles.toolbar} >
-            <h1 className={styles.title} onClick={() => navigate('/')} ><span className={styles.gold}>Crowned</span> Pig</h1>
+            <h1 className={styles.title} onClick={() => { currentAccount.email ? navigate('/movies') : navigate('/') }} ><span className={styles.gold}>Crowned</span> Pig</h1>
             {Object.keys(currentAccount).length <= 0
                 ? <div>
                     <button className={styles.button} onClick={() => navigate('/register')} >Sign Up</button>
